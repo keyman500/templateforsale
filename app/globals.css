@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-slide-down-fade: slide-down-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slide-down-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility backdrop-blur-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@font-face {
+  font-family: "NeueMontreal-Regular";
+  src: url("/fonts/NeueMontreal-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMontreal-Medium";
+  src: url("/fonts/NeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "EightiesComeback-Regular";
+  src: url("/fonts/EightiesComeback-Regular.otf") format("opentype");
+}
+
+.f-neue-regular {
+  font-family: "NeueMontreal-Regular";
+  font-weight: 400;
+}
+
+.f-neue-medium {
+  font-family: "NeueMontreal-Medium";
+  font-weight: 500;
+}
+
+.f-eightiescomeback {
+  font-family: "EightiesComeback-Regular";
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+}
+
+.border-top {
+  border-top: 1px solid transparent;
+  border-image-source: radial-gradient(
+    60.62% 60.62% at 50% 50%,
+    #045cff 0%,
+    rgba(4, 92, 255, 0) 100%
+  );
+  border-image-slice: 1;
+}
+
+.pro-pricing-border {
+  border: 1px solid transparent;
+  border-image-source: linear-gradient(
+    171.75deg,
+    rgba(4, 92, 255, 0) 48.92%,
+    rgba(4, 92, 255, 0.5) 205.56%
+  );
+  border-image-slice: 1;
+}
