@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import useScroll from "@/lib/use-scroll";
-import { cx } from "@/lib/utils";
+import { cn} from "@/lib/utils";
 
 interface NavItem {
   href: string;
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={cx(
+      className={cn(
         "fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center overflow-hidden rounded-xl border border-transparent px-3 py-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1.03)] will-change-transform",
         isMenuOpen === true ? "h-52" : "h-16",
         scrolled || isMenuOpen === true
@@ -129,7 +129,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation Menu */}
         <nav
-          className={cx(
+          className={cn(
             "my-6 flex text-lg ease-in-out will-change-transform md:hidden",
             isMenuOpen ? "" : "hidden",
           )}
