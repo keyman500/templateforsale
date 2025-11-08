@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import useScroll from "@/lib/use-scroll";
 import { cn} from "@/lib/utils";
+import { Button } from "./ui/button";
 
 interface NavItem {
   href: string;
@@ -114,7 +115,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <Button variant="outline"
             onClick={toggleMenu}
             className="md:hidden aspect-square p-2"
             aria-label="Toggle menu"
@@ -124,7 +125,7 @@ const Header: React.FC = () => {
             ) : (
               <Menu className="w-5 h-5 text-gray-600" />
             )}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Navigation Menu */}

@@ -1,5 +1,6 @@
-import HeroTitle from "./Shadows/HeroTitle";
 import Image from "next/image";
+import { BorderBeam } from "./ui/border-beam";
+import { Button } from "./ui/button";
 
 const Hero: React.FC  = () => {
     return (
@@ -7,13 +8,18 @@ const Hero: React.FC  = () => {
             <div>
                 {/* Content */}
                 <div className="relative z-40 mx-auto flex items-center justify-center flex-col">
-                    <div className="relative inline-block h-[31px] w-fit">
-                        <HeroTitle />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <h3 className="f-neue-regular tracking-[-0.14px] text-nowrap text-[14px] leading-[17px] text-[#045CFF]">
-                                Feel the future of AI communication.
-                            </h3>
-                        </div>
+                    <div className="relative inline-flex h-[31px] items-center justify-center px-6 rounded-full border border-[#045CFF]/10 bg-white">
+                        <BorderBeam 
+                            size={120}
+                            duration={12}
+                            delay={0}
+                            colorFrom="#045CFF"
+                            colorTo="rgba(4, 92, 255, 0)"
+                            borderWidth={0.5}
+                        />
+                        <h3 className="f-neue-regular tracking-[-0.14px] text-nowrap text-[14px] leading-[17px] text-[#045CFF] relative z-10">
+                            Feel the future of AI communication.
+                        </h3>
                     </div>
 
                     <h1 className="text-[32px] sm:text-[48px] leading-10 sm:leading-[54px] tracking-[-0.48px] f-eightiescomeback text-center mt-5 mb-7.5">
@@ -28,13 +34,13 @@ const Hero: React.FC  = () => {
 
                     {/* btns */}
                     <div className="mt-5 flex items-center justify-center gap-2.5">
-                        <button className="h-[39px] px-7.5 bg-[#045CFF] rounded-[10px] text-white f-neue-medium text-[16px] leading-[19px] tracking-[-0.02em]">
+                        <Button className="h-[39px] px-7.5 bg-[#045CFF] rounded-[10px] text-white f-neue-medium text-[16px] leading-[19px] tracking-[-0.02em]">
                             Get Started
-                        </button>
+                        </Button>
 
-                        <button className="h-[39px] px-[27.5px] bg-white/10 rounded-[10px] text-[#7D7D7D] f-neue-medium border border-[#E4E4E4] text-[16px] leading-[19px] tracking-[-0.02em]">
+                        <Button variant="outline" className="h-[39px] px-[27.5px] bg-white/10 rounded-[10px] text-[#7D7D7D] f-neue-medium border border-[#E4E4E4] text-[16px] leading-[19px] tracking-[-0.02em]">
                             View Pricing
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
