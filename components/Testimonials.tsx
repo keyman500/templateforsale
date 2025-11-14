@@ -1,5 +1,7 @@
 import Image from "next/image";
 import TestimonialsCards from "./Shadows/TestimonialsCards";
+import { Marquee } from "./ui/marquee";
+import { cn } from "@/lib/utils";
 
 interface TestimonialAuthor {
   name: string;
@@ -95,6 +97,49 @@ const TESTIMONIALS_DATA: Testimonial[] = [
   },
 ];
 
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+  return (
+    <div
+      className={cn(
+        "relative w-full max-w-[420px] bg-white rounded-[20px] p-6 lg:p-7.5 shadow-sm flex flex-col justify-between cursor-pointer transition-transform hover:scale-[1.02]",
+        testimonial.cardClass
+      )}
+    >
+      <h2 className="text-[16px] sm:text-[18px] leading-5 sm:leading-[26px] f-neue-medium -tracking-[-0.01em]">
+        {testimonial.title}
+      </h2>
+
+      <p className={`${testimonial.titleClass} ${testimonial.contentClass}`}>
+        {testimonial.content}
+      </p>
+
+      <div className="flex items-center gap-[15px]">
+        <div className="min-w-[50px] w-[50px] h-[50px] rounded-full overflow-hidden">
+          <Image
+            src={testimonial.author.image}
+            alt={testimonial.author.alt}
+            width={50}
+            height={50}
+            className="object-cover"
+          />
+        </div>
+
+        <div>
+          <h4 className="text-[16px] leading-[23px] f-neue-medium tracking-[-0.02em]">
+            {testimonial.author.name}
+          </h4>
+          <p className="text-[#A0A0A0] text-[14px] leading-[23px] f-neue-regular tracking-[-0.02em]">
+            {testimonial.author.role}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const firstRow = TESTIMONIALS_DATA.slice(0, 3);
+const secondRow = TESTIMONIALS_DATA.slice(3, 5);
+
 const Testimonials: React.FC = () => {
   return (
     <section
@@ -114,87 +159,18 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-[15px] mb-4">
-          {TESTIMONIALS_DATA.slice(0, 2).map(
-            (testimonial: Testimonial, index: number) => (
-              <div
-                key={index}
-                className={`${testimonial.cardClass} bg-white rounded-[20px] p-6 lg:p-7.5 md:shadow-none shadow-sm flex flex-col justify-between md:justify-start`}
-              >
-                <h2 className="text-[16px] sm:text-[18px] leading-5 sm:leading-[26px] f-neue-medium -tracking-[-0.01em]">
-                  {testimonial.title}
-                </h2>
-
-                <p
-                  className={`${testimonial.titleClass} ${testimonial.contentClass}`}
-                >
-                  {testimonial.content}
-                </p>
-
-                <div className="flex items-center gap-[15px]">
-                  <div className="min-w-[50px] w-[50px] h-[50px] rounded-full overflow-hidden">
-                    <img
-                      src={testimonial.author.image}
-                      alt={testimonial.author.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div>
-                    <h4 className="text-[16px] leading-[23px] f-neue-medium tracking-[-0.02em]">
-                      {testimonial.author.name}
-                    </h4>
-                    <p className="text-[#A0A0A0] text-[14px] leading-[23px] f-neue-regular tracking-[-0.02em]">
-                      {testimonial.author.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-[15px]">
-          {TESTIMONIALS_DATA.slice(2, 5).map(
-            (testimonial: Testimonial, index: number) => (
-              <div
-                key={index + 2}
-                className={`${testimonial.cardClass} bg-white rounded-[20px] p-6 lg:p-7.5 md:shadow-none shadow-sm flex flex-col justify-between md:justify-start`}
-              >
-                <h2 className="text-[16px] sm:text-[18px] leading-5 sm:leading-[26px] f-neue-medium -tracking-[-0.01em]">
-                  {testimonial.title}
-                </h2>
-
-                <p
-                  className={`${testimonial.titleClass} ${testimonial.contentClass}`}
-                >
-                  {testimonial.content}
-                </p>
-
-                <div className="flex items-center gap-[15px]">
-                  <div className="min-w-[50px] w-[50px] h-[50px] rounded-full overflow-hidden">
-                    <Image
-                      src={testimonial.author.image}
-                      alt={testimonial.author.alt}
-                      width={50}
-                      height={50}
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div>
-                    <h4 className="text-[16px] leading-[23px] f-neue-medium tracking-[-0.02em]">
-                      {testimonial.author.name}
-                    </h4>
-                    <p className="text-[#A0A0A0] text-[14px] leading-[23px] f-neue-regular tracking-[-0.02em]">
-                      {testimonial.author.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
+        {/* Marquee Testimonials */}
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:40s] [--gap:1rem]">
+            {firstRow.map((testimonial, index) => (
+              <TestimonialCard key={index} testimonial={testimonial} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:40s] [--gap:1rem]">
+            {secondRow.map((testimonial, index) => (
+              <TestimonialCard key={index + 3} testimonial={testimonial} />
+            ))}
+          </Marquee>
         </div>
       </div>
     </section>

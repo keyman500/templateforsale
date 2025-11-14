@@ -1,4 +1,8 @@
+'use client';
+
 import Link from "next/link";
+import { CountingNumber } from "@/components/animate-ui/primitives/texts/counting-number";
+import { Button } from "./ui/button";
 
 const JoinRevolution: React.FC = () => {
     return (
@@ -11,7 +15,15 @@ const JoinRevolution: React.FC = () => {
                 <div className="flex flex-row justify-center flex-wrap items-start gap-5 sm:gap-6 my-[33px]">
                     {/* Metric 1 */}
                     <div>
-                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">300%</h3>
+                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">
+                            <CountingNumber
+                                number={300}
+                                fromNumber={0}
+                                duration={2.5}
+                                delay={0}
+                                suffix="%"
+                            />
+                        </h3>
                         <p className="text-[12px] sm:text-[14px] leading-4 text-[#A0A0A0] tracking-[-0.14px] f-neue-regular">
                             Increase in task efficiency,<br />on average
                         </p>
@@ -22,7 +34,15 @@ const JoinRevolution: React.FC = () => {
 
                     {/* Metric 2 */}
                     <div>
-                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">4X</h3>
+                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">
+                            <CountingNumber
+                                number={4}
+                                fromNumber={0}
+                                duration={2.5}
+                                delay={0.2}
+                                suffix="X"
+                            />
+                        </h3>
                         <p className="text-[12px] sm:text-[14px] leading-4 text-[#A0A0A0] tracking-[-0.14px] f-neue-regular">ROI Guarantee</p>
                     </div>
 
@@ -31,23 +51,33 @@ const JoinRevolution: React.FC = () => {
 
                     {/* Metric 3 */}
                     <div>
-                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">90%</h3>
+                        <h3 className="text-[22px] sm:text-[26px] leading-[29px] mb-1.5 tracking-[-1.04px] f-neue-medium">
+                            <CountingNumber
+                                number={90}
+                                fromNumber={0}
+                                duration={2.5}
+                                delay={0.4}
+                                suffix="%"
+                            />
+                        </h3>
                         <p className="text-[12px] sm:text-[14px] leading-4 text-[#A0A0A0] tracking-[-0.14px] f-neue-regular">
                             Average reduction in<br />response time
                         </p>
                     </div>
                 </div>
 
-                <Link
-                    href="#"
-                    className="inline-block bg-[#045CFF] hover:bg-blue-700 text-white tracking-[-0.32px] text-[16px] leading-[19px] f-neue-medium px-7.5 py-2.5 rounded-[10px] transition-colors duration-300"
-                >
-                    Get Started Now
-                </Link>
+                <Button asChild
+                    className="inline-block bg-[#045CFF] hover:bg-blue-700 text-white tracking-[-0.32px] text-[16px] leading-[19px] f-neue-medium px-7.5 py-2.5 rounded-[10px] transition-colors duration-300">
+                    <Link
+                        href="#"
+                    >
+                        Get Started Now
+                    </Link>
+                </Button>
             </div>
 
             {/* Shadow 01 */}
-                <img src="/assets/shadow-left.svg" alt="shadow-left" loading="lazy" className="absolute left-0 -bottom-20 z-0 md:block hidden" />
+            <img src="/assets/shadow-left.svg" alt="shadow-left" loading="lazy" className="absolute left-0 -bottom-20 z-0 md:block hidden" />
 
             {/* Shadow 02 */}
             <div>

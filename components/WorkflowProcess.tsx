@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface Tab {
     id: string;
@@ -81,6 +82,8 @@ const PhoneIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const WorkflowProcess: React.FC = () => {
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+
     const tabs: Tab[] = [
         {
             id: "select-model",
@@ -94,16 +97,25 @@ const WorkflowProcess: React.FC = () => {
             icon: <SettingsIcon className="w-5 h-5" />,
             title: "Integrate Services",
             description: "Connect with popular platforms like Notion and Supbase",
-            image: "/assets/ai-modals.svg",
+            image: "/assets/integration-with-popular-services.svg",
         },
         {
             id: "phone-calls",
             icon: <PhoneIcon className="w-5 h-5" />,
             title: "Phone Calls on Your Behalf",
             description: "Let agents make global calls for you",
-            image: "/assets/ai-modals.svg",
+            image: "/assets/global-phone-calls.svg",
         },
     ];
+
+    // Auto-cycle through tabs every 4 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveTabIndex((prevIndex) => (prevIndex + 1) % tabs.length);
+        }, 4000);
+
+        return () => clearInterval(timer);
+    }, [tabs.length]);
 
     return (
         <section className="px-4">
@@ -115,35 +127,49 @@ const WorkflowProcess: React.FC = () => {
                     </h1>
 
                     <p className="text-[#7D7D7D] text-[14px] md:text-[16px] leading-5 sm:leading-[23px] tracking-[-0.01em] f-neue-regular">
-                        Getting started is simple. Here's how to manage your workflow
+                        Getting started is simple. Here&apos;s how to manage your workflow
                     </p>
                 </div>
 
-                <div className="flex items-start flex-col md:flex-row md:border-t lg:gap-y-10 border-[#EBEBEB] rounded-tl-[20px]">
-                    <div className="md:max-w-[421px] w-full border border-[#EBEBEB] md:border-t-0 rounded-[20px] md:rounded-tr-none">
-                        {tabs.map((tab, idx) => (
-                            <div key={tab.id} className="w-full text-left p-5 md:p-8 border-b border-[#EBEBEB] last:border-b-0">
-                                <div className="flex items-start flex-col gap-1">
-                                    <div className="flex items-center gap-1.5">
-                                        <div className={`w-5 h-5 ${idx === 0 ? "text-[#045CFF]" : "text-[#A9A9A9]"}`}>
-                                            {tab.icon}
+                {/* Complete Rectangle Container */}
+                <div className="border border-[#EBEBEB] rounded-[20px] overflow-hidden">
+                    <div className="flex items-stretch flex-col md:flex-row md:h-[500px]">
+                        {/* Left Side - Tabs */}
+                        <div className="md:max-w-[421px] w-full border-r-0 md:border-r border-[#EBEBEB] flex flex-col">
+                            {tabs.map((tab, idx) => (
+                                <div 
+                                    key={tab.id} 
+                                    className="w-full text-left p-5 md:p-8 border-b border-[#EBEBEB] last:border-b-0 md:border-b-0 cursor-pointer transition-all hover:bg-gray-50 flex-1 flex items-center"
+                                    onClick={() => setActiveTabIndex(idx)}
+                                >
+                                    <div className="flex items-start flex-col gap-1">
+                                        <div className="flex items-center gap-1.5">
+                                            <div className={`w-5 h-5 ${idx === activeTabIndex ? "text-[#045CFF]" : "text-[#A9A9A9]"}`}>
+                                                {tab.icon}
+                                            </div>
+                                            <h3 className={`text-base md:text-lg f-neue-medium -tracking-[2%] ${idx === activeTabIndex ? "text-[#045CFF]" : "text-[#A9A9A9]"}`}>
+                                                {tab.title}
+                                            </h3>
                                         </div>
-                                        <h3 className={`text-base md:text-lg f-neue-medium -tracking-[2%] ${idx === 0 ? "text-[#045CFF]" : "text-[#A9A9A9]"}`}>
-                                            {tab.title}
-                                        </h3>
+                                        <p className={`text-sm -tracking-[1%] f-neue-regular ${idx === activeTabIndex ? "text-[#5E5E5E]" : "text-[#A9A9A9]"}`}>
+                                            {tab.description}
+                                        </p>
                                     </div>
-                                    <p className={`text-sm -tracking-[1%] f-neue-regular ${idx === 0 ? "text-[#5E5E5E]" : "text-[#A9A9A9]"}`}>
-                                        {tab.description}
-                                    </p>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
 
-                    {/* Right Side */}
-                    <div className="flex-1 flex justify-center min-h-full items-center h-full">
-                        <div className="relative">
-                            <img src="/assets/ai.svg" alt="ai" className="scale-110 md:scale-100" />
+                        {/* Right Side - Image */}
+                        <div className="flex-1 flex justify-center items-center p-8 md:p-12 min-h-[300px]">
+                            <div className="relative w-full h-full flex items-center justify-center">
+                                <Image 
+                                    src={tabs[activeTabIndex].image} 
+                                    alt={tabs[activeTabIndex].title} 
+                                    width={600}
+                                    height={600}
+                                    className="w-auto h-auto max-w-full max-h-full object-contain transition-opacity duration-300" 
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

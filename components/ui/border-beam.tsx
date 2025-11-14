@@ -75,16 +75,15 @@ export const BorderBeam = ({
     >
       <motion.div
         className={cn(
-          "absolute aspect-square",
-          "bg-gradient-to-l from-[var(--color-from)] via-[var(--color-to)] to-transparent",
+          "absolute",
           className
         )}
         style={
           {
             width: size,
+            height: size,
+            background: `radial-gradient(circle, ${colorFrom} 0%, ${colorTo} 70%)`,
             offsetPath: `rect(0 auto auto 0 round ${size}px)`,
-            "--color-from": colorFrom,
-            "--color-to": colorTo,
             ...style,
           } as MotionStyle
         }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BorderBeam } from "./ui/border-beam";
 import { Button } from "./ui/button";
+import { Marquee } from "./ui/marquee";
 
 const Hero: React.FC  = () => {
     return (
@@ -8,14 +9,15 @@ const Hero: React.FC  = () => {
             <div>
                 {/* Content */}
                 <div className="relative z-40 mx-auto flex items-center justify-center flex-col">
-                    <div className="relative inline-flex h-[31px] items-center justify-center px-6 rounded-full border border-[#045CFF]/10 bg-white">
+                    <div className="relative inline-flex h-[31px] items-center justify-center px-6 rounded-full border border-[#045CFF]/10 bg-white overflow-hidden">
                         <BorderBeam 
-                            size={120}
-                            duration={12}
-                            delay={0}
+                            size={60}
+                            duration={20}
                             colorFrom="#045CFF"
-                            colorTo="rgba(4, 92, 255, 0)"
+                            colorTo="transparent"
                             borderWidth={0.5}
+                            className="opacity-50 blur-sm"
+                            initialOffset={0}
                         />
                         <h3 className="f-neue-regular tracking-[-0.14px] text-nowrap text-[14px] leading-[17px] text-[#045CFF] relative z-10">
                             Feel the future of AI communication.
@@ -81,16 +83,18 @@ const Hero: React.FC  = () => {
                         Trusted by mid-market and enterprise leaders
                     </p>
 
-                    <div className="flex items-center justify-center flex-wrap gap-x-10 md:gap-x-[70px] gap-y-8">
-                        {[
-                            { src: "/assets/adeaolabs.svg", alt: "AdeaoLab Logo" },
-                            { src: "/assets/kintsugi.svg", alt: "Kintsugi Logo" },
-                            { src: "/assets/stacked-lab.svg", alt: "StackedLab Logo" },
-                            { src: "/assets/magnolia.svg", alt: "Mangnolia Logo" },
-                            { src: "/assets/warpspeed.svg", alt: "Warspeed Logo" },
-                        ].map((logo, index) => (
-                            <img key={index} src={logo.src} alt={logo.alt} loading="lazy" />
-                        ))}
+                    <div className="relative flex w-full items-center justify-center overflow-hidden max-w-[280px] sm:max-w-[480px] md:max-w-[700px] lg:max-w-[900px] mx-auto">
+                        <Marquee pauseOnHover className="[--duration:26s] [--gap:2.5rem] md:[--gap:4.375rem]">
+                            {[
+                                { src: "/assets/adeaolabs.svg", alt: "AdeaoLab Logo", width: 120, height: 40 },
+                                { src: "/assets/kintsugi.svg", alt: "Kintsugi Logo", width: 120, height: 40 },
+                                { src: "/assets/stacked-lab.svg", alt: "StackedLab Logo", width: 120, height: 40 },
+                                { src: "/assets/magnolia.svg", alt: "Mangnolia Logo", width: 120, height: 40 },
+                                { src: "/assets/warpspeed.svg", alt: "Warspeed Logo", width: 120, height: 40 },
+                            ].map((logo, index) => (
+                                <Image key={index} src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="shrink-0 h-8 sm:h-10 w-auto" />
+                            ))}
+                        </Marquee>
                     </div>
                 </div>
             </div>

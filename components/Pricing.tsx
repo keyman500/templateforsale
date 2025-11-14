@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import ShadowPricing from "./Shadows/ShadowPricing";
+import { DottedGlowBackground } from "./ui/dotted-glow-background";
+import { Highlight } from "./animate-ui/primitives/effects/highlight";
+import { Button } from "./ui/button";
 
 type Feature =
   | string
@@ -20,21 +23,6 @@ interface Plan {
   highlighted?: boolean;
 }
 
-const ToggleButton: React.FC<{
-  active: boolean;
-  onClick: () => void;
-  label: string;
-}> = ({ active, onClick, label }) => (
-  <button
-    onClick={onClick}
-    className={`px-[17px] h-[29px] f-neue-regular rounded-full leading-[26px] text-[14px] tracking-[-0.5px] transition-all ${
-      active ? "bg-white text-[#045CFF]" : "text-[#B7D0FF]"
-    }`}
-    style={active ? { boxShadow: "0px 1px 24.3px 0px #045CFF0D" } : undefined}
-  >
-    {label}
-  </button>
-);
 
 const plans: Plan[] = [
   {
@@ -105,17 +93,27 @@ const Pricing: React.FC = () => {
 
         {/* Toggle */}
         <div className="flex justify-center my-[50px] relative z-10">
-          <div className="bg-[#EEF4FF] rounded-full p-0.5 flex">
-            <ToggleButton
-              active={billingCycle === "monthly"}
-              onClick={() => setBillingCycle("monthly")}
-              label="Monthly"
-            />
-            <ToggleButton
-              active={billingCycle === "yearly"}
-              onClick={() => setBillingCycle("yearly")}
-              label="Yearly"
-            />
+          <div className="bg-[#EEF4FF] rounded-full p-0.5">
+            <Highlight
+              defaultValue="monthly"
+              className="rounded-full bg-white shadow-[0px_1px_24.3px_0px_#045CFF0D]"
+              containerClassName="flex"
+              mode="children"
+              onValueChange={(value) => setBillingCycle(value as "monthly" | "yearly")}
+            >
+              <button
+                data-value="monthly"
+                className="relative z-10 px-[17px] h-[29px] f-neue-regular rounded-full leading-[26px] text-[14px] tracking-[-0.5px] transition-colors data-[active=true]:text-[#045CFF] text-[#B7D0FF]"
+              >
+                Monthly
+              </button>
+              <button
+                data-value="yearly"
+                className="relative z-10 px-[17px] h-[29px] f-neue-regular rounded-full leading-[26px] text-[14px] tracking-[-0.5px] transition-colors data-[active=true]:text-[#045CFF] text-[#B7D0FF]"
+              >
+                Yearly
+              </button>
+            </Highlight>
           </div>
         </div>
 
@@ -146,12 +144,25 @@ const Pricing: React.FC = () => {
               }}
             >
               {plan.highlighted && (
-                <img
-                  src="/assets/pricing-active-card.png"
-                  alt=""
-                  aria-hidden
-                  className="pointer-events-none select-none absolute top-0 right-0 w-full"
-                />
+                <div 
+                  className="pointer-events-none absolute top-0 right-0 w-[200px] h-[180px] rounded-tr-[20px] overflow-hidden"
+                  style={{
+                    maskImage: 'radial-gradient(ellipse 180px 150px at top right, black 0%, black 40%, transparent 70%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 180px 150px at top right, black 0%, black 40%, transparent 70%)',
+                  }}
+                >
+                  <DottedGlowBackground
+                    gap={12}
+                    radius={2}
+                    color="rgba(4, 92, 255, 0.3)"
+                    glowColor="rgba(4, 92, 255, 1)"
+                    opacity={1}
+                    backgroundOpacity={0}
+                    speedMin={0.4}
+                    speedMax={1.2}
+                    speedScale={1}
+                  />
+                </div>
               )}
 
               <div className="px-2.5 relative z-10">
@@ -174,15 +185,17 @@ const Pricing: React.FC = () => {
                 </p>
               </div>
 
-              <button
+              <Button
+                variant={plan.highlighted ? "default" : "outline"}
                 className={`w-full h-[39px] px-6 rounded-[10px] f-neue-medium text-[16px] leading-[19px] tracking-[-0.02em] my-9 transition duration-300 ${
                   plan.highlighted
                     ? "bg-[#045CFF] text-white"
                     : "bg-transparent text-[#A0A0A0] border border-[#E4E4E4] hover:bg-[#045CFF] hover:text-white"
                 }`}
               >
+              
                 Get Started
-              </button>
+              </Button>
 
               <ul className="space-y-[15px] pl-2.5">
                 {plan.features.map((feature, idx) => (
