@@ -1,4 +1,6 @@
 import React from "react";
+import AiCard from "./ai-card/ai-card";
+import IntegrationCard from "./integrations-card/center-card";
 
 const PowerFeatures: React.FC = () => {
     return (
@@ -10,7 +12,7 @@ const PowerFeatures: React.FC = () => {
                 {/* Headeings  */}
                 <div className="text-center lg:mb-12">
                     <h1 className="f-eightiescomeback mb-[15px] tracking-[-0.01em] text-2xl sm:text-[38px] leading-[30px] sm:leading-[43px]">
-                        Unlock Telezen's Power Features
+                        Unlock Telezen&apos;s Power Features
                     </h1>
 
                     <p className="text-[#7D7D7D] text-[14px] md:text-[16px] leading-5 sm:leading-[23px] tracking-[-0.01em] f-neue-regular">
@@ -20,7 +22,7 @@ const PowerFeatures: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 relative gap-x-16 lg:gap-x-24">
                     {/* Card 1 */}
-                    <div className="pt-20 pr-8 md:pr-16">
+                    <div className="pt-20 pr-8 md:pr-16 pb-64 md:pb-0">
                         <div className="md:pl-8 lg:pl-12">
                             <h3 className="f-neue-medium tracking-[-0.02em] text-lg md:text-[22px] mb-[15px]">
                                 Chat with AI Models
@@ -32,18 +34,19 @@ const PowerFeatures: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="flex items-center justify-center w-full mx-auto ml-5 lg:ml-10">
-                            <img
+                        <div className="flex items-center justify-center w-full mt-8 md:mt-12 scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90">
+                            {/* <img
                                 src="/assets/chat-with-ai-models.svg"
                                 alt="chat-with-ai-moods"
                                 loading="lazy"
                                 className="scale-140"
-                            />
+                            /> */}
+                            <AiCard />
                         </div>
                     </div>
 
                     {/* Card 2 */}
-                    <div className="pt-20 md:pl-16">
+                    <div className="pt-20 md:pl-16 pb-64 md:pb-0">
                         <div className="md:pl-8 lg:pl-12">
                             <h3 className="f-neue-medium tracking-[-0.02em] text-lg md:text-[22px] mb-[15px]">
                                 Integration with Popular Services
@@ -56,11 +59,14 @@ const PowerFeatures: React.FC = () => {
                         </div>
 
                         <div className="flex justify-center items-center mt-8 md:mt-12">
-                            <img
+                             {/* <img
                                 src="/assets/integration-with-popular-services.svg"
                                 alt="integration-with-popular-services"
                                 loading="lazy"
-                            />
+                            />  */}
+                            <div className="w-[195px] h-[184px] scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90">
+                                <IntegrationCard />
+                            </div>
                         </div>
                     </div>
 
@@ -110,29 +116,37 @@ const PowerFeatures: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* x-axix border  */}
-                    <img
+                    {/* x-axis border  */}
+                    {/* <img
                         src="/assets/x-border.png"
                         alt="border"
                         loading="lazy"
                         className="absolute top-1/2 bottom-1/2 left-0 right-0 w-full hidden md:block"
-                    />
+                    /> */}
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full h-px bg-[#E7E7E7] hidden md:block" />
 
                     {/* y-axis border  */}
-                    <img
+                    {/* <img
                         src="/assets/y-border.png"
                         alt="border"
                         loading="lazy"
                         className="opacity-100 absolute w-px top-0 bottom-0 left-1/2 -translate-x-1/2 h-full hidden md:block"
-                    />
+                    /> */}
+                    <div className="absolute w-px top-0 bottom-0 left-1/2 -translate-x-1/2 h-full bg-[#E7E7E7] hidden md:block" />
 
                     {/* Star  */}
-                    <img
+                    {/* <img
                         src="/assets/star-icon.svg"
                         alt="star-icon"
                         loading="lazy"
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[0.8px] hidden md:block"
-                    />
+                    /> */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[0.8px] hidden md:block">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L14 14L13.09 19.74L12 22L10.91 19.74L10 14L10.91 8.26L12 2Z" fill="#CDDFFF"/>
+                            <path d="M12 2L8.26 10.91L2 12L8.26 13.09L12 22L15.74 13.09L22 12L15.74 10.91L12 2Z" fill="#CDDFFF"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </section>

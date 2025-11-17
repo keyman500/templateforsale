@@ -2,6 +2,8 @@ import Image from "next/image";
 import { BorderBeam } from "./ui/border-beam";
 import { Button } from "./ui/button";
 import { Marquee } from "./ui/marquee";
+import dashboardImage from "@/public/assets/admin-dashboard.webp";
+import RightShadow from "./right-shadow/right-shadow";
 
 const Hero: React.FC  = () => {
     return (
@@ -68,12 +70,12 @@ const Hero: React.FC  = () => {
                         </svg>
                     </div>
 
-                    <img
-                        src="/assets/admin-dashboard.webp"
+                    <Image
+                        src={dashboardImage}
                         alt="admin-dashboard"
-                        loading="lazy"
                         className="w-full"
                         style={{ boxShadow: "0px -27px 250px 0px #045CFF1A" }}
+                        priority
                     />
                 </div>
 
@@ -110,14 +112,7 @@ const Hero: React.FC  = () => {
             />
 
             {/* Right Block */}
-            <Image
-                src="/assets/hero-right-shadow.svg"
-                alt="dashboard-shadow"
-                width={539}
-                height={813}
-                className="absolute -top-10 -right-[250px] sm:-right-10 w-auto h-auto"
-                unoptimized
-            />
+            <RightShadow />
 
             {/* left line */}
             <svg
