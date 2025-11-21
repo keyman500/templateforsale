@@ -1,11 +1,12 @@
 import React from "react";
 import AiCard from "./ai-card/ai-card";
 import IntegrationCard from "./integrations-card/center-card";
+import GlobeCard from "./globe-card/globle-card";
 
 const PowerFeatures: React.FC = () => {
     return (
         <section
-            className="pt-10 md:pt-20 lg:pt-[130px] px-4 overflow-hidden"
+            className="pt-10 md:pt-20 lg:pt-[130px] pb-10 md:pb-20 lg:pb-[130px] px-4 overflow-hidden"
             id="features"
         >
             <div className="max-w-[1250px] w-full mx-auto">
@@ -35,12 +36,6 @@ const PowerFeatures: React.FC = () => {
                         </div>
 
                         <div className="flex items-center justify-center w-full mt-8 md:mt-12 scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90">
-                            {/* <img
-                                src="/assets/chat-with-ai-models.svg"
-                                alt="chat-with-ai-moods"
-                                loading="lazy"
-                                className="scale-140"
-                            /> */}
                             <AiCard />
                         </div>
                     </div>
@@ -59,12 +54,7 @@ const PowerFeatures: React.FC = () => {
                         </div>
 
                         <div className="flex justify-center items-center mt-8 md:mt-12">
-                             {/* <img
-                                src="/assets/integration-with-popular-services.svg"
-                                alt="integration-with-popular-services"
-                                loading="lazy"
-                            />  */}
-                            <div className="w-[195px] h-[184px] scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90">
+                            <div className="w-[600px] h-[500px] scale-[0.35] sm:scale-[0.45] md:scale-[0.55] lg:scale-[0.65]">
                                 <IntegrationCard />
                             </div>
                         </div>
@@ -107,12 +97,13 @@ const PowerFeatures: React.FC = () => {
                         </div>
 
                         <div className="flex justify-center items-center mt-8 md:mt-12 ml-10">
-                            <img
+                            {/* <img
                                 src="/assets/global-phone-calls.svg"
                                 alt="global-phone-calls"
                                 loading="lazy"
                                 className="scale-120 md:scale-100"
-                            />
+                            />  */}
+                             <GlobeCard /> 
                         </div>
                     </div>
 
@@ -141,10 +132,12 @@ const PowerFeatures: React.FC = () => {
                         loading="lazy"
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[0.8px] hidden md:block"
                     /> */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[0.8px] hidden md:block">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L13.09 8.26L14 14L13.09 19.74L12 22L10.91 19.74L10 14L10.91 8.26L12 2Z" fill="#CDDFFF"/>
-                            <path d="M12 2L8.26 10.91L2 12L8.26 13.09L12 22L15.74 13.09L22 12L15.74 10.91L12 2Z" fill="#CDDFFF"/>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ml-[0.8px] hidden md:block w-[11px] h-[11px]">
+                        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11 11">
+                            <path
+                                d="M4.23268 0.698244C4.52735 -0.232747 5.84479 -0.232748 6.13945 0.698243L6.83253 2.88798C6.93075 3.19829 7.17384 3.44139 7.48416 3.53961L9.67389 4.23268C10.6049 4.52735 10.6049 5.84478 9.6739 6.13945L7.48416 6.83253C7.17384 6.93075 6.93075 7.17384 6.83253 7.48416L6.13946 9.67389C5.84479 10.6049 4.52735 10.6049 4.23268 9.67389L3.53961 7.48416C3.44139 7.17384 3.19829 6.93075 2.88798 6.83253L0.698244 6.13945C-0.232747 5.84478 -0.232749 4.52735 0.698243 4.23268L2.88798 3.53961C3.19829 3.44139 3.44139 3.19829 3.53961 2.88798L4.23268 0.698244Z"
+                                fill="#BCD4FF"
+                            />
                         </svg>
                     </div>
                 </div>
