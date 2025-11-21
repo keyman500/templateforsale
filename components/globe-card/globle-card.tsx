@@ -1,6 +1,7 @@
 import svgPaths from "./globle-card-svg";
 import imgRectangle34624139 from "../../public/assets/background-globe.png";
 import imgLogo from "../../public/assets/Logo.png";
+import Globe from "./Globe";
 
 function MaskGroup() {
   return (
@@ -121,7 +122,7 @@ function Frame2() {
 
 export default function Frame3() {
   return (
-    <div className="relative size-full">
+    <div className="relative w-full h-[403px] max-w-[500px] mx-auto overflow-visible">
       <MaskGroup />
       <div className="absolute flex h-[calc(1px*((var(--transform-inner-width)*0.0324687734246254)+(var(--transform-inner-height)*0.9994727373123169)))] items-center justify-center left-[183.38px] top-[204px] w-[calc(1px*((var(--transform-inner-height)*0.0324687734246254)+(var(--transform-inner-width)*0.9994727373123169)))]" style={{ "--transform-inner-width": "142", "--transform-inner-height": "132" } as React.CSSProperties}>
         <div className="flex-none rotate-[1.861deg]">
@@ -164,6 +165,10 @@ export default function Frame3() {
         </div>
       </div>
       <div className="absolute bg-white h-[403px] left-0 rounded-[15px] top-0 w-[348px]" />
+      {/* Globe positioned to show fully without cutoff */}
+      <div className="absolute left-[80px] top-[120px]">
+        <Globe />
+      </div>
       <div className="absolute left-[109px] size-[24px] top-[118px]">
         <div className="absolute inset-[-100%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 72 72">

@@ -96,14 +96,16 @@ const PowerFeatures: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="flex justify-center items-center mt-8 md:mt-12 ml-10">
+                        <div className="flex justify-center items-center mt-8 md:mt-12">
                             {/* <img
                                 src="/assets/global-phone-calls.svg"
                                 alt="global-phone-calls"
                                 loading="lazy"
                                 className="scale-120 md:scale-100"
                             />  */}
-                             <GlobeCard /> 
+                            <div className="w-full max-w-[348px] scale-[0.65] sm:scale-[0.75] md:scale-[0.85] lg:scale-100">
+                                <GlobeCard />
+                            </div>
                         </div>
                     </div>
 
