@@ -160,14 +160,14 @@ const WorkflowProcess: React.FC = () => {
                         </div>
 
                         {/* Right Side - Image */}
-                        <div className="flex-1 flex justify-center items-center p-8 md:p-12 min-h-[300px]">
+                        <div className="flex-1 flex justify-center items-center p-8 md:p-12 h-[400px] md:h-auto">
                             <div className="relative w-full h-full flex items-center justify-center">
-                                <Image 
-                                    src={tabs[activeTabIndex].image} 
-                                    alt={tabs[activeTabIndex].title} 
+                                <Image
+                                    src={tabs[activeTabIndex].image}
+                                    alt={tabs[activeTabIndex].title}
                                     width={600}
                                     height={600}
-                                    className="w-auto h-auto max-w-full max-h-full object-contain transition-opacity duration-300" 
+                                    className="w-auto h-auto max-w-full max-h-full object-contain transition-opacity duration-300"
                                 />
                             </div>
                         </div>

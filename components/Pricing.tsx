@@ -4,6 +4,7 @@ import ShadowPricing from "./Shadows/ShadowPricing";
 import { DottedGlowBackground } from "./ui/dotted-glow-background";
 import { Highlight } from "./animate-ui/primitives/effects/highlight";
 import { Button } from "./ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Feature =
   | string
@@ -170,14 +171,25 @@ const Pricing: React.FC = () => {
                   {plan.name}
                 </h3>
 
-                <div className="text-[46px] f-neue-medium leading-[26px] tracking-[-0.5px]">
-                  $
-                  {billingCycle === "monthly"
-                    ? plan.priceMonthly
-                    : plan.priceYearly}
-                  <span className="ml-1 text-[18px] leading-[26px] text-[#7D7D7D] f-neue-regular">
-                    /per {billingCycle === "monthly" ? "month" : "year"}
-                  </span>
+                <div className="text-[46px] f-neue-medium leading-[26px] tracking-[-0.5px] relative">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={billingCycle}
+                      initial={{ opacity: 0 , x: billingCycle === "yearly" ? -15 : 15, filter: "blur(3px)"}}
+                      animate={{ opacity: 1 , x: 0 , filter: "blur(0px)" }}
+                      exit={{ opacity: 0 , x: billingCycle === "yearly" ? 15 : -15 , filter: "blur(3px)" }}
+                      transition={{ duration: 0.1 }}
+                      className="inline-block"
+                    >
+                      $
+                      {billingCycle === "monthly"
+                        ? plan.priceMonthly
+                        : plan.priceYearly}
+                      <span className="ml-1 text-[18px] leading-[26px] text-[#7D7D7D] f-neue-regular">
+                        /per {billingCycle === "monthly" ? "month" : "year"}
+                      </span>
+                    </motion.span>
+                  </AnimatePresence>
                 </div>
 
                 <p className="text-[14px] leading-[17px] f-neue-regular text-[#696969] mt-[11px]">
@@ -234,17 +246,31 @@ const Pricing: React.FC = () => {
                         }`}
                       >
                         {feature.before ?? ""}
-                        <span
-                          className={`text-[16px] leading-[26px] tracking-[-0.5px] font-medium text-[#B3B3B3] ${
-                            feature.before ? "ml-[11px]" : ""
-                          }`}
-                        >
-                          {feature.highlight === "Per Month"
-                            ? billingCycle === "yearly"
-                              ? "Per Year"
-                              : "Per Month"
-                            : feature.highlight}
-                        </span>
+                        {feature.highlight === "Per Month" ? (
+                          <span className={`inline-block relative ${feature.before ? "ml-[11px]" : ""}`}>
+                            <AnimatePresence mode="wait">
+                              <motion.span
+                                key={billingCycle}
+                                initial={{ opacity: 0 , x: billingCycle === "yearly" ? -15 : 15,}}
+                                animate={{ opacity: 1 , x: 0 }}
+                                exit={{ opacity: 0 , x: billingCycle === "yearly" ? 15 : -15 }}
+                                transition={{ duration: 0.1 }}
+                               
+                                className="text-[16px] leading-[26px] tracking-[-0.5px] font-medium text-[#B3B3B3] inline-block"
+                              >
+                                {billingCycle === "yearly" ? "Per Year" : "Per Month"}
+                              </motion.span>
+                            </AnimatePresence>
+                          </span>
+                        ) : (
+                          <span
+                            className={`text-[16px] leading-[26px] tracking-[-0.5px] font-medium text-[#B3B3B3] ${
+                              feature.before ? "ml-[11px]" : ""
+                            }`}
+                          >
+                            {feature.highlight}
+                          </span>
+                        )}
                       </h3>
                     )}
                   </li>
