@@ -2,6 +2,7 @@ import React from "react";
 import AiCard from "./ai-card/ai-card";
 import IntegrationCard from "./integrations-card/center-card";
 import GlobeCard from "./globe-card/globle-card";
+import RealtimeInsightsCard from "./realtime-insights-card/realtime-insights";
 
 const PowerFeatures: React.FC = () => {
     return (
@@ -73,13 +74,10 @@ const PowerFeatures: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="flex justify-start items-start mr-10  ">
-                            <img
-                                src="/assets/real-time-dashboard-insights.svg"
-                                alt="real-time-dashboard-insights"
-                                loading="lazy"
-                                className="scale-140"
-                            />
+                        <div className="flex justify-start items-start mr-10 mt-8">
+                            <div className="relative w-[580px] h-[420px]">
+                                <RealtimeInsightsCard />
+                            </div>
                         </div>
                     </div>
 

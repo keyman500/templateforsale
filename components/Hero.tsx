@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Marquee } from "./ui/marquee";
 import dashboardImage from "@/public/assets/admin-dashboard.webp";
 import RightShadow from "./right-shadow/right-shadow";
+import LeftShadow from "./left-shadow/left-shadow";
 
 const Hero: React.FC  = () => {
     return (
@@ -102,14 +103,7 @@ const Hero: React.FC  = () => {
             </div>
 
             {/* Left Block */}
-            <Image
-                src="/assets/hero-left-shadow.svg"
-                alt="dashboard-shadow"
-                width={539}
-                height={813}
-                className="absolute -top-10 -left-[250px] sm:-left-10 w-auto h-auto"
-                unoptimized
-            />
+            <LeftShadow />
 
             {/* Right Block */}
             <RightShadow />

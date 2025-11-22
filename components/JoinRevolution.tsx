@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { CountingNumber } from "@/components/animate-ui/primitives/texts/counting-number";
 import { Button } from "./ui/button";
+import FooterRightShadow from "./footer-right-shadow/footer-right-shadow";
+import FooterLeftShadow from "./footer-left-shadow/footer-left-shadow";
 
 const JoinRevolution: React.FC = () => {
     return (
@@ -77,12 +79,10 @@ const JoinRevolution: React.FC = () => {
             </div>
 
             {/* Shadow 01 */}
-            <img src="/assets/shadow-left.svg" alt="shadow-left" loading="lazy" className="absolute left-0 -bottom-20 z-0 md:block hidden" />
+            <FooterLeftShadow className="absolute left-0 -bottom-20 z-0 md:block hidden w-[250px] h-[406px] lg:w-[499px] lg:h-[813px]" />
 
             {/* Shadow 02 */}
-            <div>
-                <img src="/assets/shadow-right.svg" alt="shadow-right" loading="lazy" className="absolute right-0 -bottom-20 z-0 md:block hidden" />
-            </div>
+            <FooterRightShadow className="absolute right-0 -bottom-20 z-0 md:block hidden w-[250px] h-[406px] lg:w-[499px] lg:h-[813px]" />
 
             {/* Shadow 03 */}
             <div>
