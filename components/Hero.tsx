@@ -143,7 +143,7 @@ const Hero: React.FC  = () => {
                 src="/assets/dashboard-bottom-shadow.svg"
                 alt="dashboard-bottom-shadow"
                 loading="lazy"
-                className="absolute w-full max-w-[1400px] h-[200px] sm:min-h-[423px] bottom-52 sm:bottom-0 left-0 right-0 mx-auto z-20"
+                className="absolute w-full max-w-[1400px] h-[200px] sm:min-h-[423px] bottom-0 left-0 right-0 mx-auto z-20"
             />
 
             {/* Bottom line */}
