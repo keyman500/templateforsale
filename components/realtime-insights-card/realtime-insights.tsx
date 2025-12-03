@@ -13,6 +13,25 @@ function GradientMask() {
   );
 }
 
+function Shadow() {
+  return (
+    <div className="absolute left-[78px] top-[100px] w-[487px] h-[320px] pointer-events-none" data-name="Shadow">
+      <svg className="absolute inset-[-50%_-30%]" width="780" height="550" viewBox="0 0 780 550" fill="none">
+        <g filter="url(#filter0_f_shadow_realtime)">
+          <ellipse cx="390" cy="275" rx="230" ry="115" fill="#045CFF" fillOpacity="0.15" />
+        </g>
+        <defs>
+          <filter id="filter0_f_shadow_realtime" x="0" y="0" width="780" height="550" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="80" result="effect1_foregroundBlur" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
 function ChartCardBase() {
   return (
     <div className="absolute h-[303px] left-0 top-0 w-[468px]" data-name="Base">
@@ -322,7 +341,7 @@ function MonthLabels() {
 
 function ChartCard({ isInView }: { isInView: boolean }) {
   return (
-    <div className="absolute h-[303px] left-[93px] top-[111px] w-[487px]">
+    <div className="absolute h-[303px] left-[93px] top-[111px] w-[437px] overflow-hidden rounded-[15px]">
       <ChartCardBase />
       <ChartCardShine />
       <StatsRow />
@@ -563,6 +582,7 @@ export default function RealtimeInsightsCard() {
   return (
     <div ref={ref} className="relative size-full">
       <GradientMask />
+      <Shadow />
       <ChartCard isInView={isInView} />
     </div>
   );

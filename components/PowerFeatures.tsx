@@ -24,7 +24,7 @@ const PowerFeatures: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 relative gap-x-16 lg:gap-x-24">
                     {/* Card 1 */}
-                    <div className="pt-20 pr-8 md:pr-16 pb-64 md:pb-0">
+                    <div className="pt-20 pr-8 md:pr-16 pb-8 md:pb-0">
                         <div className="md:pl-8 lg:pl-12">
                             <h3 className="f-neue-medium tracking-[-0.02em] text-lg md:text-[22px] mb-[15px]">
                                 Chat with AI Models
@@ -36,13 +36,17 @@ const PowerFeatures: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="flex items-center justify-center w-full mt-8 md:mt-12 scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90">
-                            <AiCard />
+                        <div className="flex items-center justify-center w-full mt-4 md:-mt-4 lg:-mt-8 md:pl-8 lg:pl-16">
+                            <div className="h-[280px] sm:h-[330px] md:h-auto">
+                                <div className="scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90 origin-top">
+                                    <AiCard />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     {/* Card 2 */}
-                    <div className="pt-20 md:pl-16 pb-64 md:pb-0">
+                    <div className="pt-20 md:pl-16 pb-0 md:pb-0">
                         <div className="md:pl-8 lg:pl-12">
                             <h3 className="f-neue-medium tracking-[-0.02em] text-lg md:text-[22px] mb-[15px]">
                                 Integration with Popular Services
@@ -55,14 +59,14 @@ const PowerFeatures: React.FC = () => {
                         </div>
 
                         <div className="flex justify-center items-center mt-8 md:mt-12">
-                            <div className="w-[600px] h-[500px] scale-[0.35] sm:scale-[0.45] md:scale-[0.55] lg:scale-[0.65]">
+                            <div className="w-[600px] h-[200px] sm:h-[225px] md:h-[275px] lg:h-[325px] scale-[0.35] sm:scale-[0.45] md:scale-[0.55] lg:scale-[0.65] origin-top">
                                 <IntegrationCard />
                             </div>
                         </div>
                     </div>
 
                     {/* Card 3 */}
-                    <div className="pt-28 pr-8 md:pr-16">
+                    <div className="pt-16 md:pt-28 pr-8 md:pr-16">
                         <div className="md:pl-8 lg:pl-12">
                             <h3 className="f-neue-medium tracking-[-0.02em] text-lg md:text-[22px] mb-[15px]">
                                 Real-Time Dashboard Insights
@@ -74,8 +78,8 @@ const PowerFeatures: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="flex justify-start items-start mr-10 mt-8">
-                            <div className="relative w-[580px] h-[420px]">
+                        <div className="flex justify-start items-start mt-8 -ml-4 sm:ml-0 md:mr-10">
+                            <div className="relative w-[580px] h-[230px] sm:h-[270px] md:h-[315px] lg:h-[380px] scale-[0.55] sm:scale-[0.65] md:scale-75 lg:scale-90 origin-top-left">
                                 <RealtimeInsightsCard />
                             </div>
                         </div>

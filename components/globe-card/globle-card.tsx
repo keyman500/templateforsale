@@ -230,20 +230,6 @@ export default function Frame3() {
           </svg>
         </div>
       </div>
-      <div className="absolute h-[91.288px] left-[172.5px] top-[229.5px] w-[159.5px]">
-        <div className="absolute inset-[-0.22%_-0.29%_-0.55%_-0.09%]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 161 92">
-            <path d={svgPaths.p1aabb00} id="Vector 9260" stroke="url(#paint0_linear_1_128)" />
-            <defs>
-              <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_128" x1="-13.0187" x2="159.976" y1="-19.9483" y2="89.0127">
-                <stop stopColor="#045CFF" stopOpacity="0" />
-                <stop offset="1" stopColor="#045CFF" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      <Frame />
       <Frame1 />
       <Frame2 />
       <div className="absolute flex h-[calc(1px*((var(--transform-inner-width)*1)+(var(--transform-inner-height)*0)))] items-center justify-center left-[174px] top-[113px] w-[calc(1px*((var(--transform-inner-height)*1)+(var(--transform-inner-width)*0)))]" style={{ "--transform-inner-width": "15", "--transform-inner-height": "15" } as React.CSSProperties}>

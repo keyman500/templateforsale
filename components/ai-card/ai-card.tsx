@@ -2,6 +2,7 @@ import Image from "next/image";
 import svgPaths from "./ai-card-svg";
 import imgLogo from "../../public/assets/Logo.png";
 import imgUserAvatar from "../../public/assets/Logo-2.png";
+import imgRectangle34624139 from "../../public/assets/a00ede6740f3cc613425003274e6881753137603.png";
 
 function Shine() {
   return (
@@ -327,11 +328,90 @@ function MainContent() {
   );
 }
 
-export default function AICard() {
+function Shadow() {
   return (
-    <div className="relative size-full">
+    <div className="absolute h-[230px] left-[78px] top-[87px] w-[487px]" data-name="Shadow">
+      <svg className="absolute inset-[-96%_-45%]" width="978" height="672" viewBox="0 0 978 672" fill="none">
+        <g filter="url(#filter0_f_shadow_ai)">
+          <ellipse cx="489" cy="336" rx="289" ry="136" fill="#045CFF" fillOpacity="0.15" />
+        </g>
+        <defs>
+          <filter id="filter0_f_shadow_ai" x="0" y="0" width="978" height="672" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+function LeftMaskGroup() {
+  return (
+    <div className="absolute left-0 top-[53px] w-[254px] h-[254px] opacity-30 overflow-hidden" data-name="Mask group">
+      <div
+        className="absolute w-[307px] h-[307px] rounded-full"
+        style={{
+          left: "-27px",
+          top: "-53px",
+          backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 307 307\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><rect x=\"0\" y=\"0\" height=\"100%\" width=\"100%\" fill=\"url(%23grad)\" opacity=\"0.7\"/><defs><radialGradient id=\"grad\" gradientUnits=\"userSpaceOnUse\" cx=\"0\" cy=\"0\" r=\"10\" gradientTransform=\"matrix(7.5 11.2 -11.2 7.5 153.5 153.5)\"><stop stop-color=\"rgba(4,92,255,1)\" offset=\"0\"/><stop stop-color=\"rgba(4,92,255,0)\" offset=\"1\"/></radialGradient></defs></svg>')",
+          maskImage: `url('${imgRectangle34624139.src}')`,
+          WebkitMaskImage: `url('${imgRectangle34624139.src}')`,
+          maskSize: "307px 307px",
+          WebkitMaskSize: "307px 307px",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+        }}
+      />
+    </div>
+  );
+}
+
+function RightMaskGroup() {
+  return (
+    <div className="absolute right-0 top-[73px] w-[300px] h-[369px] opacity-30 overflow-hidden" data-name="Mask group">
+      <div
+        className="absolute w-[369px] h-[369px] rounded-full"
+        style={{
+          left: "-35px",
+          top: "-6px",
+          backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 369 369\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><rect x=\"0\" y=\"0\" height=\"100%\" width=\"100%\" fill=\"url(%23grad)\" opacity=\"0.7\"/><defs><radialGradient id=\"grad\" gradientUnits=\"userSpaceOnUse\" cx=\"0\" cy=\"0\" r=\"10\" gradientTransform=\"matrix(9 13.4 -13.4 9 184.5 184.5)\"><stop stop-color=\"rgba(4,92,255,1)\" offset=\"0\"/><stop stop-color=\"rgba(4,92,255,0)\" offset=\"1\"/></radialGradient></defs></svg>')",
+          maskImage: `url('${imgRectangle34624139.src}')`,
+          WebkitMaskImage: `url('${imgRectangle34624139.src}')`,
+          maskSize: "369px 369px",
+          WebkitMaskSize: "369px 369px",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+        }}
+      />
+    </div>
+  );
+}
+
+function Base() {
+  return (
+    <div className="absolute bg-white h-[396px] left-[90px] rounded-[15px] top-[97px] w-[428px]" data-name="Base" />
+  );
+}
+
+function CardContent() {
+  return (
+    <div className="absolute h-[371px] left-[90px] top-[97px] w-[428px]">
       <Shine />
       <MainContent />
+    </div>
+  );
+}
+
+export default function AICard() {
+  return (
+    <div className="relative w-[596px] h-[500px]">
+      <LeftMaskGroup />
+      <RightMaskGroup />
+      <Shadow />
+      <Base />
+      <CardContent />
     </div>
   );
 }
