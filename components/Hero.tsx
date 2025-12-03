@@ -87,7 +87,7 @@ const Hero: React.FC  = () => {
                     </p>
 
                     <div className="relative flex w-full items-center justify-center overflow-hidden max-w-[280px] sm:max-w-[480px] md:max-w-[700px] lg:max-w-[900px] mx-auto">
-                        <Marquee pauseOnHover className="[--duration:26s] [--gap:2.5rem] md:[--gap:4.375rem]">
+                        <Marquee pauseOnHover repeat={5} className="[--duration:25s] [--gap:2.5rem] md:[--gap:4.375rem]">
                             {[
                                 { src: "/assets/adeaolabs.svg", alt: "AdeaoLab Logo", width: 120, height: 40 },
                                 { src: "/assets/kintsugi.svg", alt: "Kintsugi Logo", width: 120, height: 40 },

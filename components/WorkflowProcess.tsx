@@ -83,6 +83,7 @@ const PhoneIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const WorkflowProcess: React.FC = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const [resetKey, setResetKey] = useState(0);
 
     const tabs: Tab[] = [
         {
@@ -108,6 +109,11 @@ const WorkflowProcess: React.FC = () => {
         },
     ];
 
+    const handleTabClick = (idx: number) => {
+        setActiveTabIndex(idx);
+        setResetKey((prev) => prev + 1); // Reset the timer
+    };
+
     // Auto-cycle through tabs every 4 seconds
     useEffect(() => {
         const timer = setInterval(() => {
@@ -115,7 +121,7 @@ const WorkflowProcess: React.FC = () => {
         }, 4000);
 
         return () => clearInterval(timer);
-    }, [tabs.length]);
+    }, [tabs.length, resetKey]);
 
     return (
         <section className="px-4">
@@ -140,7 +146,7 @@ const WorkflowProcess: React.FC = () => {
                                 <div 
                                     key={tab.id} 
                                     className="w-full text-left p-5 md:p-8 border-b border-[#EBEBEB] last:border-b-0 md:border-b-0 cursor-pointer transition-all hover:bg-gray-50 flex-1 flex items-center"
-                                    onClick={() => setActiveTabIndex(idx)}
+                                    onClick={() => handleTabClick(idx)}
                                 >
                                     <div className="flex items-start flex-col gap-1">
                                         <div className="flex items-center gap-1.5">

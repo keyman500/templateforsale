@@ -40,10 +40,10 @@ function Shine() {
 
 function RiChatSmileAiFill() {
   return (
-    <div className="bg-[rgba(4,92,255,0.07)] box-border content-stretch flex flex-col gap-[10px] h-[35px] items-center justify-center overflow-clip px-0 py-px relative rounded-[10px] shrink-0 w-[36px]" data-name="ri:chat-smile-ai-fill">
+    <div className="bg-[rgba(4,92,255,0.07)] box-border content-stretch flex flex-col gap-[10px] h-[35px] items-center justify-center px-0 py-px relative rounded-[10px] shrink-0 w-[36px]" data-name="ri:chat-smile-ai-fill">
       <div className="relative shrink-0 size-[21px]" data-name="Logo">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image alt="" className="absolute max-w-none" src={imgLogo} width={23} height={21} style={{ width: "107.28%" }} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <Image alt="" className="max-w-none" src={imgLogo} width={21} height={19} />
         </div>
       </div>
     </div>
@@ -168,8 +168,8 @@ function UserMessageBubbleLong() {
   return (
     <div className="bg-[rgba(4,92,255,0.05)] box-border content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-bl-[10px] rounded-br-[5px] rounded-tl-[10px] rounded-tr-[10px] shrink-0">
       <div className="font-['Neue_Montreal:Regular',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#045cff] text-[15px] text-nowrap tracking-[-0.3px] whitespace-pre">
-        <p className="mb-0">{`I want to create a workflow that will send an `}</p>
-        <p>email to all my clients.</p>
+        <p className="mb-0">{`Can you generate a weekly report for `}</p>
+        <p>our sales team metrics?</p>
       </div>
     </div>
   );
@@ -190,8 +190,8 @@ function AIAvatarSmall() {
   return (
     <div className="bg-[#f4f4f4] content-stretch flex gap-[10px] items-center justify-center relative rounded-[44px] shrink-0 size-[40px]">
       <div className="relative shrink-0 size-[21px]" data-name="Logo">
-        <div className="absolute inset-0 opacity-50 overflow-hidden pointer-events-none">
-          <Image alt="" className="absolute max-w-none" src={imgLogo} width={23} height={21} style={{ width: "107.28%" }} />
+        <div className="absolute inset-0 flex items-center justify-center opacity-50 pointer-events-none">
+          <Image alt="" className="max-w-none" src={imgLogo} width={21} height={19} />
         </div>
       </div>
     </div>
@@ -222,8 +222,8 @@ function AIAvatarSmall2() {
   return (
     <div className="bg-[#f4f4f4] content-stretch flex gap-[10px] items-center justify-center relative rounded-[44px] shrink-0 size-[40px]">
       <div className="relative shrink-0 size-[21px]" data-name="Logo">
-        <div className="absolute inset-0 opacity-50 overflow-hidden pointer-events-none">
-          <Image alt="" className="absolute max-w-none" src={imgLogo} width={23} height={21} style={{ width: "107.28%" }} />
+        <div className="absolute inset-0 flex items-center justify-center opacity-50 pointer-events-none">
+          <Image alt="" className="max-w-none" src={imgLogo} width={21} height={19} />
         </div>
       </div>
     </div>
@@ -233,7 +233,7 @@ function AIAvatarSmall2() {
 function AIMessageBubbleShort() {
   return (
     <div className="bg-[#f4f4f4] box-border content-stretch flex gap-[10px] items-center justify-center p-[10px] relative rounded-bl-[5px] rounded-br-[10px] rounded-tl-[10px] rounded-tr-[10px] shrink-0">
-      <p className="font-['Neue_Montreal:Regular',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-black text-nowrap tracking-[-0.3px] whitespace-pre">Nah, do it yourself.</p>
+      <p className="font-['Neue_Montreal:Regular',sans-serif] leading-[20px] not-italic relative shrink-0 text-[15px] text-black text-nowrap tracking-[-0.3px] whitespace-pre">Sounds like a you problem.</p>
     </div>
   );
 }
